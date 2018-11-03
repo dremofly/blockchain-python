@@ -11,4 +11,8 @@ class Blockchain(object):
     def AddBlock(self, data):
         prevBlockHash = self.blocks[len(self.blocks)-1].Hash 
         newBlock = b.Block(data, prevBlockHash)
-        self.blocks.append(newBlock)
+        if newBlock.Validate:
+            self.blocks.append(newBlock)
+            return False
+        else:
+            return True
