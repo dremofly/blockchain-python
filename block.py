@@ -15,4 +15,6 @@ class Block(object):
         encoder.update(header.encode("utf-8"))
         return encoder.hexdigest()
     
+    def __str__(self):
+        return "PrevBlockHash: " + self.PrevBlockHash + "\n" + "Data: " + self.Data + "\n" + "Hash: " + self.Hash + "\n"
 
